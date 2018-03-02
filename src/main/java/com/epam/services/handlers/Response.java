@@ -4,19 +4,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Response")
-public class Response {
+public abstract class Response {
 
-    @XmlElement(name = "Status")
-    String status;
+    @XmlElement(name = "status")
+    protected String status;
+    @XmlElement(name = "info")
+    protected String info;
 
-    @XmlElement(name = "Value")
-    Object value;
-
-    public Response() {
-    }
-
-    public Response(String status, Object value) {
-        this.status = status;
-        this.value = value;
-    }
 }

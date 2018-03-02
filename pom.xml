@@ -36,9 +36,7 @@
             <groupId>com.sun.xml.ws</groupId>
             <artifactId>jaxws-rt</artifactId>
             <version>${xml.ws.version}</version>
-            <type>pom</type>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -50,9 +48,11 @@
                 <version>3.2.0</version>
             </plugin>
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
+                <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.8.v20171121</version>
                 <configuration>
+                    <webAppSourceDirectory>${project.build.directory}/${project.build.finalName}</webAppSourceDirectory>
                     <war>${project.build.finalName}</war>
                     <stopKey/>
                     <stopPort/>
@@ -61,3 +61,4 @@
         </plugins>
     </build>
 </project>
+<!-- wsimport -keep -verbose http://localhost:8080/UserService?wsdl -->
